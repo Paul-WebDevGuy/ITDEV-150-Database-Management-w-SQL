@@ -1,0 +1,52 @@
+--2
+Write a SELECT statement that returns four columns from the Products table: ProductCode, ProductName, ListPrice, and DiscountPercent. Then, run this statement to make sure it works correctly.
+Add an ORDER BY clause to this statement that sorts the result set by list price in descending sequence. Then, run this statement again to make sure it works correctly. This is a good way to build and test a statement, one clause at a time.
+
+--3
+Write a SELECT statement that returns one column from the Customers table named FullName that joins the LastName and FirstName columns.
+Format this column with the last name, a comma, a space, and the first name like this:
+	Doe, John
+Sort the result set by last name in ascending sequence.
+Return only the contacts whose last name begins with letters from M to Z.
+
+--4
+Write a SELECT statement that returns these column names and data from the Products table:
+        ProductName            	The ProductName column
+        ListPrice                   	The ListPrice column
+        DateAdded               	The DateAdded column
+Return only the rows with a list price that’s greater than 500 and less than 2000.
+Sort the result set in descending sequence by the DateAdded column.
+
+--5
+Write a SELECT statement that returns these column names and data from the Products table:
+        ProductName            	The ProductName column
+        ListPrice                   	The ListPrice column
+        DiscountPercent       	The DiscountPercent column
+        DiscountAmount             A column that’s named DiscountAmount and calculated 
+with the following formula:
+ListPrice * (DiscountPercent * .01)	      
+       DiscountPrice           	A column that’s named DiscountPrice and calculated with 
+the following formula:
+				ListPrice - (ListPrice * (DiscountPercent * .01)) 
+Sort the result set by discount price in descending sequence.
+
+--6
+Write a SELECT statement that returns these column names and data from the OrderItems table:
+	ItemID                     	The ItemID column
+	ItemPrice                  	The ItemPrice column
+	DiscountAmount      	The DiscountAmount column
+	Quantity                   	The Quantity column
+	PriceTotal                 	A column that’s calculated by multiplying the item price with the quantity
+	DiscountTotal           	A column that’s calculated by multiplying the discount amount with the quantity
+	ItemTotal                 	A column that’s calculated by subtracting the discount amount from the item price and then multiplying by the quantity
+
+Only return rows where the ItemTotal is greater than 500.
+Sort the result set by item total in descending sequence.
+Hint:  you will not be able to use itemTotal in the WHERE clause because of order of execution of the select clause.  WHERE  is executed before SELECT. As a result, ItemTotal will not exist when the where clause is executed. This is why you may be seeing an error.  Instead use the calculation used to create the column.   WHERE (ItemPrice - DiscountAmount) * Quantity > 500
+
+--7
+Write a SELECT statement that returns these columns from the Orders table:
+	OrderID                    	The OrderID column
+	OrderDate                 	The OrderDate column
+	ShipDate                  	The ShipDate column
+Return only the rows where the ShipDate column contains a null value.
